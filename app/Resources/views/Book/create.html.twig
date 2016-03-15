@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+
+    {{ parent() }} {#use parent for include the parent content on the block#}
+
+
+{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>Halaman Create Book</h2>
+                <hr class="star-primary">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                {{ form_start(form) }}
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                        <label style="color: black">Title</label>
+                        {{ form_widget(form.title, { 'attr': {'class': 'form-control', 'placeholder': 'TITLE'} }) }}
+                        <p class="help-block text-danger"></p>
+                    </div>
+                </div>
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                        <label style="color: black">Author</label>
+                        {{ form_widget(form.author, { 'attr': {'class': 'form-control', 'placeholder': 'AUTHOR'} }) }}
+                        <p class="help-block text-danger"></p>
+                    </div>
+                </div>
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                        <label style="color: black">Title</label>
+                        {{ form_widget(form.description, { 'attr': {'class': 'form-control', 'placeholder': 'DESCRIPTION'} }) }}
+                        <p class="help-block text-danger"></p>
+                    </div>
+                </div>
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                        <label style="color: black">Title</label>
+                        {{ form_widget(form.genre, { 'attr': {'class': 'form-control', 'placeholder': 'GENRE'} }) }}
+                        <p class="help-block text-danger"></p>
+                    </div>
+                </div>
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                        <label style="color: black">Published Date</label>
+                             {{ form_widget(form.publishedDate) }}
+                        <p class="help-block text-danger"></p>
+                    </div>
+                </div>
+
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                        <label style="color: black">Published Date</label>
+                        {{ form_widget(form.registeredDate) }}
+                        <p class="help-block text-danger"></p>
+                    </div>
+                </div>
+                    <br />
+                <div class="row control-group">
+                    <div class="form-group col-xs-12">
+                        {{ form_widget(form.save, { 'attr': {'class': 'btn btn-success btn-lg'} }) }}
+                    </div>
+                </div>
+
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}

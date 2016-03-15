@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Book Store!{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" type="text/css" href="{{ asset('plugins/bootstrap-3.3.6-dist/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('plugins/styles.css') }}">
+        <!-- Custom Fonts -->
+        <link href="{{ asset('plugins/font-awesome-4.5.0/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+<body id="page-top" class="index">
+<!-- Navigation -->
+<nav class="navbar navbar-default">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#page-top">Achilles BookStore</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="hidden">
+                    <a href="#page-top"></a>
+                </li>
+                <li class="page-scroll">
+                    <a href="{{ path('book_list') }}">Home</a>
+                </li>
+                <li class="page-scroll">
+                    <a href="{{ path('book_create') }}">Create</a>
+                </li>
+                <li class="page-scroll">
+                    <a href="#">Login</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav> <!--- /.nav -->
+<section>
+    {% block body %}{% endblock %}
+</section>
+{% block javascripts %}
+    <script src="{{ asset('plugins/bootstrap-3.3.6-dist/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('plugins/jquery-2.2.1.min.js') }}"></script>
+{% endblock %}
+</body>
+</html>
+
+

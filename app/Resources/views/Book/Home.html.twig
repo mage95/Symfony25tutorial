@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+
+    {{ parent() }} {#use parent for include the parent content on the block#}
+    <style>
+
+        table {
+            max-width: 960px;
+            margin: 10px auto;
+        }
+
+        caption {
+            font-size: 1.6em;
+            font-weight: 400;
+            padding: 10px 0;
+        }
+
+        thead th {
+            font-weight: 400;
+            background: #8a97a0;
+            color: #FFF;
+        }
+
+        tr {
+            background: #f4f7f8;
+            border-bottom: 1px solid #FFF;
+            margin-bottom: 5px;
+        }
+
+        tr:nth-child(even) {
+            background: #e8eeef;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 20px;
+            font-weight: 300;
+        }
+
+        tfoot tr {
+            background: none;
+        }
+
+        tfoot td {
+            padding: 10px 2px;
+            font-size: 0.8em;
+            font-style: italic;
+            color: #8a97a0;
+        }
+
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h3>Welcome to Achilles BookStore</h3>
+            <hr class="star-primary">
+        </div>
+    </div>
+    <div class="col-md-8 col-md-offset-2">
+
+        <table class="table" cellpadding="5">
+            <thead>
+                <td>Title</td>
+                <td>Author</td>
+                <td>Description</td>
+                <td>Genre</td>
+                <td>Published Date</td>
+                <td>Action</td>
+            </thead>
+
+            {% for book in books %}
+                <tr>
+                    <td><a href="{{ path('book_view', {'id': book.id}) }}">  {{ book.title }} </a></td>
+                    <td>{{ book.author }}</td>
+                    <td>{{ book.description }}</td>
+                    <td>{{ book.genre }}</td>
+                    <td>{{ book.publishedDate|date('Y-m-d') }}</td>
+                    <td><a href="{{ path('book_update', {'id': book.id}) }}">Edit</a> | <a href="{{ path('book_delete', {'id': book.id}) }}">Delete</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
