@@ -60,6 +60,43 @@ hr.star-primary:after {
     background-color: white;
     color: #2c3e50;
 }
+
+
+hr.search-light,
+hr.search-primary {
+    padding: 0;
+    border: none;
+    border-top: solid 4px;
+    text-align: center;
+    max-width: 150px;
+    margin: 25px auto 30px;
+}
+hr.search-light:after,
+hr.search-primary:after {
+    content: "\f002";
+    font-family: FontAwesome;
+    display: inline-block;
+    position: relative;
+    top: -0.8em;
+    font-size: 1.5em;
+    padding: 0 0.25em;
+}
+hr.search-light {
+    border-color: white;
+}
+hr.search-light:after {
+    background-color: #18bc9c;
+    color: white;
+}
+hr.search-primary {
+    border-color: #2c3e50;
+}
+hr.search-primary:after {
+    background-color: white;
+    color: #2c3e50;
+}
+
+
 .img-centered {
     margin: 0 auto;
 }

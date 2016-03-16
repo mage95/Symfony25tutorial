@@ -60,6 +60,26 @@
     </div>
     <div class="col-md-8 col-md-offset-2">
 
+        <!-- SEARCH BOX -->
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h3>Search Book</h3>
+                <hr class="search-primary">
+            </div>
+            <div class="col-lg-8 col-lg-offset-4">
+                <form method="get" action="{{ path('book_search') }}" class="form-inline">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="title" id="titleBook" placeholder="Enter Book Name....">
+                    </div>
+                    <button type="submit" class="btn btn-default">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
+                    </button>
+
+                </form>
+            </div>
+        </div>
+        <!-- ./END SEARCH BOX -->
+
         <table class="table" cellpadding="5">
             <thead>
                 <td>Title</td>
@@ -81,6 +101,7 @@
                 </tr>
             {% endfor %}
         </table>
+
     </div>
 {% endblock %}
 

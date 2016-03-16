@@ -130,4 +130,24 @@ class DefaultController extends Controller
             'book' => $book,
         ));
     }
+
+    /**
+     * @Route("/book/search", name="book_search")
+     *
+     */
+    public function searchAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager(); //get entity manager
+
+        $title = $this->get('request')->request->get('title');
+
+        if(!$title){
+            return $this->render(':Book:search.html.twig');
+        }else{
+            $book = $this->getDoctrine()->getRepository('AppBundle:Book')->findOneByTitle($title);
+            return $this->render(':Book:view.html.twig', array(
+                'book' => $book,
+            ));
+        }
+    }
 }

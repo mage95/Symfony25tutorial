@@ -13,16 +13,16 @@
 
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h3>Welcome to Achilles BookStore</h3>
+                <h3>Book Detail for ID #{{ book.id }}</h3>
                 <hr class="star-primary">
             </div>
         </div>
 
     <div class="col-md-8 col-md-offset-2">
-        {{ book.title }}
-        {{ book.author }}
-        {{ book.description }}
-        Genre {{ book.genre }}
+        {{ book.title }} <br>
+        {{ book.author }} <br>
+        {{ book.description }} <br>
+        Genre {{ book.genre }} <br>
     </div>
 {% endblock %}
 
