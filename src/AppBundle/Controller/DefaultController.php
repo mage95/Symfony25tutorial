@@ -15,13 +15,37 @@ class DefaultController extends Controller
     /**
      * @Route("/book/list", name="book_list")
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
-        $books = $this->getDoctrine()->getRepository('AppBundle:Book')->findAll();
+        $em = $this->getDoctrine()->getManager(); //grab Entity Manager
+
         $thatBook = $this->getDoctrine()->getRepository('AppBundle:Book')->find(4); // search by PK
         $thatBookBy = $this->getDoctrine()->getRepository('AppBundle:Book')->findBy(array(
             'genre' => 'horror'
         )); // search by Criteria
+
+        $search = $request->query->get('title');
+        //var_dump($request->query->all());
+
+        if(!$search){
+            $books = $this->getDoctrine()->getRepository('AppBundle:Book')->findAll();
+
+        }else{
+
+            $repo = $this->getDoctrine()->getRepository('AppBundle:Book');
+            $books = $repo->createQueryBuilder('a')
+                     ->where('a.title LIKE :title')
+                     ->setParameter('title', '%'.$search.'%')
+                    ->getQuery()->getResult();
+
+
+
+           // $books = $this->getDoctrine()->getRepository('AppBundle:Book')->findBy(array(
+           //     'title' => $search
+           // ));
+        }
+
+
         return $this->render(':Book:Home.html.twig', array('books' => $books));
     }
 
